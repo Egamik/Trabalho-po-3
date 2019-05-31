@@ -1,0 +1,19 @@
+ import java.io.FileWriter;
+  import java.io.IOException;  
+  
+  public class Register {
+      public static String newLine = System.getProperty("line.separator");
+
+      public void writeFile(String[] a) {
+        FileWriter writer;
+        try {
+          writer = new FileWriter("test.txt");
+		  writer.write("Testeeeeee"+newLine + "teste 2");
+          
+          writer.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+
+      }
+    }
