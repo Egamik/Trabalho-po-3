@@ -1,38 +1,19 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Formatter;
+ import java.io.FileWriter;
+  import java.io.IOException;  
+  
+  public class Register {
+      public static String newLine = System.getProperty("line.separator");
 
-public class Register {
+      public void writeFile(String[] a) {
+        FileWriter writer;
+        try {
+          writer = new FileWriter("test.txt");
+		  writer.write("Testeeeeee"+newLine + "teste 2");
+          
+          writer.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
 
-	private Formatter output;
-	private String fileName;
-
-	public Register(String name) {
-		fileName = name;
-		
-	}
-	public void openFile() {
-		try {
-			output = new Formatter("history.txt");
-		}
-		catch(FileNotFoundException filenotfound){
-			System.err.println("Error. File not found!");
-		}
-	}
-	
-	public void addString(String s) {
-		openFile();
-		output.format("%s",s);
-		closeFile();
-	}
-	
-	public void closeFile() {
-		output.close();
-	}
-	
-	public void createFile() {
-		File name = new File(fileName);
-	}
-	
-
-}
+      }
+    }
